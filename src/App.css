@@ -38,6 +38,7 @@ body .navbar-nav .nav-link.active { color: #ffffff !important; }
 body .btn {border-radius: 50px; padding: 10px 25px;font-weight: 500;display: flex;
     align-items: center;
     justify-content: center;}
+body .text-grey {color: #8E8E8E;}
 body .btn svg {margin-right: 7px;font-size: 21px;}
 body .btn-primary {
      background-color: #018DB2;
@@ -73,7 +74,7 @@ body .btn-primary {
  .buttongroup {display: flex;}
  .buttongroup .btn {margin-right: 15px;}
  .searchbar {position: relative;}
- .searchbar input {background-color: #F5F5F5; border: 1px solid #F5F5F5;
+ .searchbar input, .searchbar select {background-color: #F5F5F5; border: 1px solid #F5F5F5;
     box-shadow: 1px 1px 3px rgba(0,0,0,0.25); border-radius: 25px; padding: 10px 25px;width: 100%;}
  .searchbar svg {position: absolute; right: 25px; top: 12px; font-size: 21px; }
  .searchbar input:focus {outline: none;}
@@ -123,10 +124,32 @@ body .form-group label {font-size: 14px;margin-bottom: 4px;}
     width: 100%; margin-top: 10px;
     flex-direction: column;}
 .adminview .sidebarnav ul li a {display: block; padding: 10px 20px; color: #000; font-weight: 600; }
-.adminview .sidebarnav ul li a:hover, .adminview .sidebarnav ul li a.active {text-decoration: none; color: #007F8B; background-color: #d3eff2; }
+.adminview .sidebarnav ul li a:hover, .adminview .sidebarnav ul li a.active {text-decoration: none; color: #000; background-color: #E3E3E3; }
 body .card {border: none;border-radius: 5px; overflow: hidden;}
 body .card-body {background-color: #F3F3F3;}
 body .card .card-header {background: linear-gradient(90.06deg, #00A2B1 1.6%, #007F8B 99.97%); border-bottom: 0px; color: #fff;}
 .labellist {display: flex;margin-bottom: 15px;}
 .labellist label {margin-bottom: 0;margin-right: 10px;}
 .table-layout-fixed {table-layout: fixed;}
+.loginwrapper {background-color: #EBEDED; position: relative; height: 100vh; width: 100%; overflow: auto;  }
+.loginwrapper::after, .loginwrapper::before {content: ""; position: absolute; width: 50%; background-repeat: no-repeat; background-size: contain; }
+.loginwrapper::before {background-image: url(../public/login-bg1.svg); height: 70%; left: 0; top: 0; background-position: left top; } 
+.loginwrapper::after {background-image: url(../public/login-bg2.svg); height: 70%; right: 0; background-position: right bottom; bottom: 0; } 
+.loginfooter {position: absolute; bottom: 0; z-index: 100; left: 0;right: 0;} 
+.logimg {background-color: #D0FBFF;}
+.logforms {padding: 30px 40px 30px 30px !important;}
+body .logforms .form-control {box-shadow: none !important;  border-color: #EEEEEE !important; background-color: #EEEEEE !important;}
+.logforms .input-group-text {border: none; background-color: #EEEEEE; border-color: #EEEEEE;}
+.forgot {color: #FF8FAA;}
+.bg-grey {background-color: #F2F2F2 !important;}
+.no-shadow {box-shadow: none !important;}
+.listcard {border-radius: 10px; overflow: hidden; margin-top: 30px;}
+.listcard .pagetitle {background-color: #F4F4F4; display: block; width: 100%; padding: 15px;}
+.listcard .list-group-item {background-color: #FCFCFC; border-left: none; border-right: none; border-top: none; position: relative;}
+.notlable {display: inline-flex; width: 35px; height: 35px; font-size: 14px; color: #fff; align-items: center; justify-content: center; border-radius: 50%; background: #018DB2;}
+.readornot {position: absolute; right: 15px; top: 10px; font-size: 21px; color: #838383;}
+.not-cation {width: 30px; height: 30px; border-radius: 50%; margin-right: 10px; display: inline-flex;align-items: center; justify-content: center;}
+body .bg-danger {background-color: #FF9D9D !important; color: #fff !important;}
+body .bg-success {background-color: #8EFF7C !important;color: #fff !important;}
+body .text-primary {color: #006C76 !important;}
+.cardinfo .labellist label {min-width: 180px;}

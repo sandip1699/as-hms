@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import Footer from "../../components/Footer";
+import CreatePatientRecord from "../../components/CreatePatientRecord";
 import {
   Container,
   Row,
@@ -28,6 +29,7 @@ import {
   FiFile,
   FiImage,
   FiClock,
+  FiUserPlus,
 } from "react-icons/fi";
 import {
   BsArrowDownUp,
@@ -46,6 +48,9 @@ function Appointment() {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  const [smShow, setSmShow] = useState(false);
+  const handleModalClose = () => setSmShow(false);
+  const handleModalShow = () => setSmShow(true);
 
   return (
     <div>
@@ -57,7 +62,7 @@ function Appointment() {
             </Col>
             <Col md={5}>
               <div className="buttongroup">
-                <Button variant="success" onClick={handleShow}>
+                <Button variant="success" onClick={handleModalShow}>
                   <FiPlus /> CREATE
                 </Button>
                 <Button variant="success">
@@ -82,31 +87,31 @@ function Appointment() {
                   <thead>
                     <tr>
                       <th>
-                      Appointment No.
+                        Appointment No.
                         <a className="sorting">
                           <BsArrowDownUp />
                         </a>
                       </th>
                       <th>
-                      Patient Name
+                        Patient Name
                         <a className="sorting">
                           <BsArrowDownUp />
                         </a>
                       </th>
                       <th>
-                      Doctor Name
+                        Doctor Name
                         <a className="sorting">
                           <BsArrowDownUp />
                         </a>
                       </th>
                       <th>
-                      Date/Time
+                        Date/Time
                         <a className="sorting">
                           <BsArrowDownUp />
                         </a>
                       </th>
                       <th>
-                      Department
+                        Department
                         <a className="sorting">
                           <BsArrowDownUp />
                         </a>
@@ -122,9 +127,13 @@ function Appointment() {
                   <tbody>
                     <tr>
                       <td>5984895615</td>
-                      <td><Link to="/patients-details/summary">Venkata Narasimha Rajuvaripet</Link></td>
+                      <td>
+                        <Link to="/appointment-details/today-appointment">
+                          Venkata Narasimha Rajuvaripet
+                        </Link>
+                      </td>
                       <td>Arnold Schwarzenegger</td>
-                      <td>21.03.2021   05:25pm</td>
+                      <td>21.03.2021 05:25pm</td>
                       <td>Rehabilitation</td>
                       <td className="actions">
                         <div className="d-flex actionlist">
@@ -139,9 +148,13 @@ function Appointment() {
                     </tr>
                     <tr>
                       <td>5984895615</td>
-                      <td><Link to="/patients-details/summary">Venkata Narasimha Rajuvaripet</Link></td>
+                      <td>
+                        <Link to="/appointment-details/today-appointment">
+                          Venkata Narasimha Rajuvaripet
+                        </Link>
+                      </td>
                       <td>Arnold Schwarzenegger</td>
-                      <td>21.03.2021   05:25pm</td>
+                      <td>21.03.2021 05:25pm</td>
                       <td>Rehabilitation</td>
                       <td className="actions">
                         <div className="d-flex actionlist">
@@ -156,9 +169,13 @@ function Appointment() {
                     </tr>
                     <tr>
                       <td>5984895615</td>
-                      <td><Link to="/patients-details/summary">Venkata Narasimha Rajuvaripet</Link></td>
+                      <td>
+                        <Link to="/appointment-details/today-appointment">
+                          Venkata Narasimha Rajuvaripet
+                        </Link>
+                      </td>
                       <td>Arnold Schwarzenegger</td>
-                      <td>21.03.2021   05:25pm</td>
+                      <td>21.03.2021 05:25pm</td>
                       <td>Rehabilitation</td>
                       <td className="actions">
                         <div className="d-flex actionlist">
@@ -171,7 +188,6 @@ function Appointment() {
                         </div>
                       </td>
                     </tr>
-                    
                   </tbody>
                 </Table>
                 <div className="paginations">
@@ -216,119 +232,91 @@ function Appointment() {
           </Row>
         </Container>
       </PateintLayout>
-      <Modal show={show} onHide={handleClose} size="lg" className="pateintmodal">
+      <Modal
+        show={show}
+        onHide={handleClose}
+        size="lg"
+        className="pateintmodal"
+      >
         <Modal.Header closeButton>
           <Modal.Title>Create Patient Record</Modal.Title>
         </Modal.Header>
         <Modal.Body>
+          <CreatePatientRecord />
+        </Modal.Body>
+      </Modal>
+      <Modal
+        show={smShow}
+        onHide={handleModalClose}
+        size="md"
+        className="pateintmodal"
+      >
+        <Modal.Header closeButton>
+          <Modal.Title>Create Appointment</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
           <Form>
-            <Row>
-              <Col md={6}>
-                <Form.Group>
-                  <Form.Label>Patient Name*</Form.Label>
-                  <div className="formicon">
-                    <Form.Control type="text" placeholder="Eg. John Doe" />
-                    <FiUser />
-                  </div>
-                </Form.Group>
-                <Form.Group>
-                  <Form.Label>Email*</Form.Label>
-                  <div className="formicon">
-                    <Form.Control type="text" placeholder="Eg. email@xyz.com" />
-                    <BsEnvelope />
-                  </div>
-                </Form.Group>
-                <Form.Group>
-                  <Form.Label>Blood Group*</Form.Label>
-                  <div className="formicon">
-                    <Form.Control type="text" placeholder="Eg. O+" />
-                    <FiUser />
-                  </div>
-                </Form.Group>
-                <Form.Group>
-                  <Form.Label>Insurance Id</Form.Label>
-                  <div className="formicon">
-                    <Form.Control type="text" placeholder="Eg. 789551451646512" />
-                    <FiHash />
-                  </div>
-                </Form.Group>
-                <Form.Group>
-                  <Form.Label>Address</Form.Label>
-                  <div className="formicon">
-                    <Form.Control type="text" placeholder="Locality" />
-                  </div>
-                </Form.Group>
-                <Form.Group>
-                  <div className="formicon">
-                    <Form.Control type="text" placeholder="City" />
-                  </div>
-                </Form.Group>
-                <Form.Group>
-                  <Form.Label>Aadhar*</Form.Label>
-                  <div className="formicon">
-                    <Form.Control type="text" placeholder="Eg. XXXX XXXX XXXX" />
-                    <FiUserCheck />
-                  </div>
-                </Form.Group>
-              </Col>
-              <Col md={6}>
-                <Form.Group>
-                  <Form.Label>Phone *</Form.Label>
-                  <div className="formicon">
-                    <Form.Control type="text" placeholder="Eg. 9876543210" />
-                    <FiPhoneCall />
-                  </div>
-                </Form.Group>
-                <Form.Group>
-                  <Form.Label>Date of birth*</Form.Label>
-                  <div className="formicon">
-                    <Form.Control type="text" placeholder="DD/MM/YYYY" />
-                    <FiCalendar />
-                  </div>
-                </Form.Group>
-                <Form.Group>
-                  <Form.Label>Height</Form.Label>
-                  <div className="formicon">
-                    <Form.Control type="text" placeholder="Eg. 160cm" />
-                    <FiMaximize2 />
-                  </div>
-                </Form.Group>
-                <Form.Group>
-                  <Form.Label>Weight</Form.Label>
-                  <div className="formicon">
-                    <Form.Control type="text" placeholder="Eg. 70Kgs" />
-                    <FiDisc />
-                  </div>
-                </Form.Group>
-                <Form.Group>
-                  <Form.Label className="opacity-0">State</Form.Label>
-                  <div className="formicon">
-                    <Form.Control type="text" placeholder="State" />
-                  </div>
-                </Form.Group>
-                <Form.Group>
-                  <div className="formicon">
-                    <Form.Control type="text" placeholder="Pincode" />
-                  </div>
-                </Form.Group>
-                <Form.Group>
-                  <Form.Label>Photo</Form.Label>
-                  <div className="formicon">
-                    <Form.Control type="file" placeholder="Upload Files" />
-                    <FiImage />
-                  </div>
-                </Form.Group>
-              </Col>
-              <Col md={12} className="mt-4">
-                <Button variant="primary" onClick={handleClose}>
-                  Save
+            <Form.Group>
+              <div className="d-flex align-items-center py-4 justify-content-between">
+                <p className="mb-0">
+                  Patient #
+                  <strong className="text-primary h4 pl-3">PA01234</strong>
+                </p>
+                <Button variant="success" onClick={handleShow}>
+                  Create Patient Record
                 </Button>
+              </div>
+            </Form.Group>
+            <Form.Group>
+              <Form.Label>Patient Name*</Form.Label>
+              <div className="formicon">
+                <Form.Control type="text" placeholder="Eg. John Doe" />
+                <FiUser />
+              </div>
+            </Form.Group>
+            <Form.Group>
+              <Form.Label>Doctor</Form.Label>
+              <div className="formicon">
+                <Form.Control type="text" placeholder="Eg. John Doe" />
+                <FiUserPlus />
+              </div>
+            </Form.Group>
+            <Row>
+              <Col md={8}>
+                <Form.Group>
+                  <Form.Label>Appointment</Form.Label>
+                  <div className="formicon">
+                    <Form.Control type="date" />
+                  </div>
+                </Form.Group>
+              </Col>
+              <Col md={4}>
+                <Form.Group>
+                  <Form.Label>Duration</Form.Label>
+                  <div className="formicon">
+                  <select className="form-control">
+                  <option>10 min</option>
+                  <option>30 min</option>
+                </select>
+                  </div>
+                </Form.Group>
               </Col>
             </Row>
+            <Form.Group>
+              <Form.Label>Notes</Form.Label>
+              <div className="formicon">
+                <textarea className="form-control" placeholder="write notes"></textarea>
+              </div>
+            </Form.Group>
+            <Form.Group className="d-flex justify-content-end">
+              <Button variant="primary">
+                Save
+              </Button>
+            </Form.Group>
           </Form>
         </Modal.Body>
       </Modal>
-      
+
       <Footer />
     </div>
   );

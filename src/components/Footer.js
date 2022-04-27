@@ -20,7 +20,7 @@ const Footer = () => {
           <Row className="align-items-center">
             <Col md={12} className="text-center">
                 <img src="/footer-logo.png" alt="logo" />
-                <span className="ml-3 text-white">Copyrights © 2022</span>
+                <span className="ml-5 text-white">Copyrights © 2022</span>
             </Col>
           </Row>
         </Container>

@@ -204,7 +204,6 @@ function Summary(props) {
                   <Col md={12} className="mt-4">
                       <div className="buttongroup">
                     <Button variant="primary">Save</Button>
-                    <Button variant="primary">Save</Button>
                     <Button variant="primary">Schedule Appointment</Button>
                     <Button variant="primary">Schedule Diagnostic Test</Button>
                     <Button variant="primary">Admit</Button>

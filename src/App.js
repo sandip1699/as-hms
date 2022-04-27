@@ -6,6 +6,8 @@ import Login from "./pages/Login";
 import Patients from "./pages/Patients/Patients";
 import PatientsDetails from "./pages/PatientsDetails/PatientsDetails";
 import Appointment from "./pages/Appointment/Appointment";
+import AppointmentDetails from "./pages/AppointmentDetails/AppointmentDetails";
+import Home from "./pages/Home/Home";
 import Header from "./components/Header";
 import {
   BrowserRouter as Router,
@@ -21,14 +23,16 @@ function App() {
         <Header />
         <Route path="/patients" component={Patients} />
         <Route path="/appointment" component={Appointment} />
+        <Route path="/home" component={Home} />
         {/* <Route path="/product-details" component={ProductDetails} /> */}
         <Route path="/patients-details" component={PatientsDetails} />
+        <Route path="/appointment-details" component={AppointmentDetails} />
       </div>
     </div>
   );
   
   const LoginContainer = () => (
-    <div className="container">
+    <div>
       <Route exact path="/" render={() => <Redirect to="/" />} />
       <Route path="/" component={Login} />
     </div>
