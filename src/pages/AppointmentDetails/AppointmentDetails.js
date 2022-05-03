@@ -2,6 +2,7 @@ import React from "react";
 import TodayAppointments from "../AppointmentDetails/TodayAppointments";
 import MedicalHistory from "../AppointmentDetails/MedicalHistory";
 import DetailedNotes from "../AppointmentDetails/DetailedNotes";
+import AppointmentHistory from "../AppointmentDetails/AppointmentHistory";
 import { Nav } from "react-bootstrap";
 import {
   BrowserRouter as Router,
@@ -38,6 +39,7 @@ function AppointmentDetails(props) {
               <Route path="/appointment-details/today-appointment" component={TodayAppointments} />
               <Route path="/appointment-details/detailed-notes" component={DetailedNotes} />
               <Route path="/appointment-details/medical-history" component={MedicalHistory} />
+              <Route path="/appointment-details/appointment-history" component={AppointmentHistory} />
               
             </Switch>
           </div>
